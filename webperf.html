@@ -2,10 +2,6 @@
 <html>
 
   <head>
-    <script type="text/javascript">
-        var timerStart = Date.now();
-    </script>
-    
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Obswebperf.GitHub.io : ">
@@ -69,15 +65,5 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    <script type="text/javascript">
-         $(document).ready(function() {
-             console.log("Time until DOMready: ", Date.now()-timerStart);
-         });
-         $(window).load(function() {
-             console.log("Time until everything loaded: ", Date.now()-timerStart);
-         });
-    </script>
-    
   </body>
 </html>
