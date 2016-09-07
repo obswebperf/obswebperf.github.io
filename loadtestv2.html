@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+
+<body>
+
+<p>Webpage AutoLoader for loadtesting.</p>
+<p>Please ensure popups are enabled before proceeding...</p>
+
+<button onclick="myFunction()">Start AutoLoader</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var website = prompt("Please enter URL to load test:", "http://www.media-server.com/m/go/livestream_demo");
+    
+    if (website != null) {
+	var iterations = prompt("How many copies of the URL do you want to open?", "5");
+
+	for (i = 0; i < iterations; i++) {
+
+	//loadpage(website);
+	prepareframe(website,i);
+	document.getElementById("iframe" + i).onload = function () { this.contentWindow.scrollTo(50,50) };
+	}
+    }
+}
+
+function loadpage(website) {
+	open(website);
+
+}
+
+function prepareframe(website,ifrmid) {
+	var ifrm = document.createElement("iframe");
+	ifrm.setAttribute("id", "iframe" + ifrmid);
+	ifrm.setAttribute("src",website);
+	ifrm.style.width = "642px";
+	ifrm.style.height = "428px";
+	ifrm.style.border = "none";
+	ifrm.scrolling = "yes";
+	document.body.appendChild(ifrm);
+	
+	
+	
+}
+
+</script>
+
+</body>
+</html>
