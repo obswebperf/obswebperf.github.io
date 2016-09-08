@@ -27,8 +27,8 @@ function myFunction() {
 }
 
 function loadpage(website) {
-	open(website);
-	focus();
+	var myWindow = window.open(website);
+	myWindow.focus();
 
 }
 
