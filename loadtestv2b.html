@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h1>Loadtesting Webpage AutoLoader - v2</h1>
+<p>Click the 'Start AutoLoader' button, then enter the URL of the website to be loaded followed by the number of times to load it.</p>
+
+<p>The pages will be opened within this page as iFrames, therefore the number of displayable pages will be limited by your screen resolution...</p>
+
+<button onclick="myFunction()">Start AutoLoader</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var website = prompt("Please enter URL to load test:", "http://edge.media-server.com/m/p/3s86mkch/ftag/sq2");
+    
+    if (website != null) {
+	var iterations = prompt("How many copies of the URL do you want to open?", "5");
+	for (i = 0; i < iterations; i++) {
+	//loadpage(website);
+	prepareframe(website,i);
+	document.getElementById("iframe" + i).setAttribute("style", "top:-120px; left:-20px; position:absolute; width:1280px; height:1280px;");
+	document.getElementById("div" + i).setAttribute("style", "float:left; position:relative; overflow:hidden; width:660px; height:455px;");
+									  
+	}
+    }
+}
+function loadpage(website) {
+	open(website);
+}
+function prepareframe(website,ifrmid) {
+	var div = document.createElement("div");
+	div.setAttribute("id", "div" + ifrmid);
+	div.style.width = "642px";
+	div.style.height = "428px";
+	document.body.appendChild(div);
+	
+	var ifrm = document.createElement("iframe");
+	ifrm.setAttribute("id", "iframe" + ifrmid);
+	ifrm.setAttribute("src",website);
+	ifrm.style.width = "1280px";
+	ifrm.style.height = "1280px";
+	ifrm.style.border = "none";
+	ifrm.scrolling = "no";
+	div.appendChild(ifrm);
+	
+	
+	
+}
+</script>
+
+</body>
+</html>
